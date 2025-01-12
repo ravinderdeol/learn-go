@@ -1,2 +1,2 @@
-# learn-go-
-📚 Learning Resources
+# Learn Go
+Resources used to learn Go.
