@@ -1,29 +1,34 @@
 // Basic Error Handling:
 // - Handle errors immediately to maintain program stability.
 // - Use the built-in 'error' type to represent and manage errors.
+// - Use: For non-critical issues where the program can continue running after handling the error.
 
 // Panic and Recover:
 // - Use 'panic' for critical errors that cannot be recovered.
 // - Use 'recover' in a deferred function to regain control after a 'panic'.
 // - Combine 'panic' and 'recover' to handle unexpected issues without crashing the program.
 // - Defer ensures cleanup code runs during a 'panic'.
+// - Use: For unrecoverable errors or situations where the program cannot safely continue without intervention.
 
 // Custom Errors:
 // - Create structs that implement the 'error' interface for custom errors.
 // - Use custom errors to add details like error codes or descriptions.
 // - Pass custom errors by reference to maintain state and avoid copying.
+// - Use: When you need more descriptive and specific error information than the default 'error' type provides.
 
 // Error Wrapping and Unwrapping:
 // - Use 'fmt.Errorf' to add context to errors for easier debugging.
 // - Use 'errors.Is' to check if an error matches a specific target error.
 // - Use 'errors.As' to extract and handle specific error types.
 // - Wrapping errors preserves the original error for traceability.
+// - Use: For adding extra context to errors or working with specific error types in complex applications.
 
 // Logging and Reporting:
 // - Log errors with timestamps, messages, and stack traces for debugging.
 // - Use 'fmt.Print' for simple logs, 'log.Fatal' to log and exit, and 'panic' for critical issues.
 // - Explicitly check and handle error values to prevent ignoring issues.
 // - Effective logging improves production monitoring and debugging.
+// - Use: For recording errors and program state, especially in production systems, to facilitate debugging and monitoring.
 
 // Best Practices:
 // - Always handle errors returned by functions.
