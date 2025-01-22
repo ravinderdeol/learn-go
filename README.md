@@ -5,6 +5,7 @@ Resources used to learn Go.
 ## Tutorials
 
 - [Learn Go](https://codecademy.com/learn/learn-go)
+- [Learn Intermediate Go](https://codecademy.com/learn/learn-intermediate-go)
 
 ## Resources
 
