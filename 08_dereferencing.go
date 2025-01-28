@@ -1,29 +1,29 @@
-// Dereferencing:
-// - Dereferencing accesses or changes the value at an address
-// - Use the * operator on a pointer to get or set the value it points to
-// - Example: *ptr = 10 changes the value at the address stored in ptr
-// - Dereferencing is useful for updating shared data or large structures efficiently
+// Dereferencing in Go:
+// - Dereferencing retrieves or modifies the value at a memory address
+// - Use the '*' operator on a pointer to access or update the value it points to
+// - Example: '*ptr = 10' updates the value at the address stored in 'ptr'
+// - Dereferencing is efficient for updating shared data or large structures
 
-// Pointers as function arguments:
-// - Use pointers to change a variable's value in a different scope
-// - Pass a pointer to a function to modify the original variable
-// - In the function, use the * operator to dereference the pointer and update the value
-// - To pass a pointer, use the & operator to get the variable's address
-// - Pointers allow changes to the original variable because they share the same address
+// Pointers as function arguments in Go:
+// - Use pointers to modify a variable's value in a different scope
+// - Pass a pointer to a function to allow changes to the original variable
+// - Inside the function, use the '*' operator to dereference and update the value
+// - Use the '&' operator to pass a variable's address as a pointer to a function
+// - Pointers allow functions to modify the original variable by sharing its address
 
 // Define a function that takes a pointer as an argument
 func brainwash(saying *string) {
 
-	// Dereference the pointer to update the value at the address
+	// Update the value at the address using '*'
 	*saying = "Beep Boop."
 }
 
 func main() {
 
-	// Define a variable with an initial value
+	// Declare a variable with an initial value
 	greeting := "Hello there!"
 
-	// Pass the variable's address to the function using the & operator
+	// Pass the address of the variable to the function using '&'
 	brainwash(&greeting)
 
 	// Print the updated value of the variable

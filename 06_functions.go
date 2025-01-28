@@ -1,34 +1,32 @@
-// Functions:
-// - Functions contain code that runs when called
-// - The main() function is special and runs automatically
-// - Functions are used to avoid repeating code
-// - Use functions to solve similar problems with one solution
+// Functions in Go:
+// - Functions are blocks of code that execute when called
+// - The 'main()' function is special and runs automatically
+// - Functions reduce code repetition and solve similar problems with one solution
 // - Functions can return one or more values
 
-// Parameters and arguments:
-// - Functions can take input values called parameters
-// - Parameters are variables used inside the function
-// - Arguments are the actual values you pass to the parameters
+// Parameters and arguments in Go:
+// - Parameters are input variables defined in a function
+// - Arguments are the actual values passed to parameters when calling a function
 // - The number of arguments must match the number of parameters
-// - Go gives an error if you do not pass enough arguments
+// - Go throws an error if the required number of arguments is not provided
 
-// Return values:
-// - Functions can send values back using return
-// - The return statement stops the function and sends back a value
-// - Functions can specify the type of value they return
-// - The returned value can be saved in a variable to use later
+// Return values in Go:
+// - Functions use 'return' to send values back to the caller
+// - The 'return' statement stops the function and sends the specified value
+// - Functions specify the type of value they return
+// - Returned values can be stored in variables for later use
 
-// Scope:
-// - Scope is where variables and functions can be accessed
-// - Variables created in a function can only be used inside that function
-// - Global scope allows functions like main() to use other functions
-// - Functions cannot access variables from other functions
-// - To pass data between functions return values and use them as needed
+// Scope in Go:
+// - Scope defines where variables and functions are accessible
+// - Variables created in a function are limited to that function's scope
+// - Global scope allows sharing functions like 'main()' with others
+// - Functions cannot directly access variables from other functions
+// - To share data between functions use return values and pass them as needed
 
-// Defer:
-// - Defer delays a function call until the end of the current scope
-// - Defer is useful for tasks like cleanup or logging
-// - Defer ensures the function runs no matter how the code exits
+// Defer in Go:
+// - The 'defer' keyword delays a function call until the end of the current scope
+// - Use 'defer' for cleanup tasks like closing files or logging
+// - 'defer' ensures the function executes even if the code exits early
 
 package main
 

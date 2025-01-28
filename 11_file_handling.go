@@ -1,23 +1,20 @@
-// Making directories:
-// - Use os.Mkdir(name, perm) to create directories in Go.
-// - The "name" parameter specifies the directory name, and "perm" sets permission bits.
-// - Use 0777 for open read, write, and execute access.
+// Managing directories in Go:
+// - Use 'os.Mkdir(name, perm)' to create a directory with a specified name and permissions
+// - Set 'perm' to '0777' for open read, write, and execute access
+// - Use 'os.Getwd()' to retrieve the current working directory
+// - Use 'os.Chdir(name)' to change the current working directory
 
-// Changing directories:
-// - Use os.Getwd() to get the current working directory.
-// - Use os.Chdir(name) to change the current working directory.
+// File creation in Go:
+// - Use 'os.Create("name")' to create a new file
+// - Use 'defer File.Close()' to release system resources and save changes after file operations
 
-// File creation:
-// - Use os.Create("name") to create a new file in Go.
-// - Use defer File.Close() to release system resources and save changes after file operations.
+// Reading files in Go:
+// - Use 'os.ReadFile("name")' to read the entire contents of a file
+// - Convert file content to a string using 'string(content)' before printing it with 'fmt.Println'
 
-// Reading from files:
-// - Use os.ReadFile("name") to read the entire contents of a file.
-// - Convert the content to a string using string(content) before printing it with fmt.Println.
-
-// Writing to files:
-// - Use File.WriteString("string") to append a string to a file.
-// - Use File.Write(data) to write byte data, such as JSON objects, into a file.
+// Writing files in Go:
+// - Use 'File.WriteString("string")' to append a string to a file
+// - Use 'File.Write(data)' to write byte data such as JSON objects into a file
 
 package main
 
@@ -27,16 +24,16 @@ import (
 	"os"
 )
 
-// User represents a user profile.
+// User represents a user profile with name, age, and email
 type User struct {
 	Name  string `json:"name"`
 	Age   int    `json:"age"`
 	Email string `json:"email"`
 }
 
-// createDirectory creates a new directory.
+// createDirectory creates a new directory with full permissions
 func createDirectory(dirName string) error {
-	err := os.Mkdir(dirName, 0777) // Create a directory with full permissions.
+	err := os.Mkdir(dirName, 0777)
 	if err != nil {
 		return fmt.Errorf("failed to create directory '%s': %w", dirName, err)
 	}
@@ -44,7 +41,7 @@ func createDirectory(dirName string) error {
 	return nil
 }
 
-// changeDirectory changes the current working directory.
+// changeDirectory changes the current working directory to the specified directory
 func changeDirectory(dirName string) error {
 	err := os.Chdir(dirName)
 	if err != nil {
@@ -54,7 +51,7 @@ func changeDirectory(dirName string) error {
 	return nil
 }
 
-// getWorkingDirectory prints the current working directory.
+// getWorkingDirectory returns the current working directory and prints it
 func getWorkingDirectory() (string, error) {
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -64,7 +61,7 @@ func getWorkingDirectory() (string, error) {
 	return cwd, nil
 }
 
-// createFile creates a file and writes initial content.
+// createFile creates a file and writes the specified content to it
 func createFile(fileName, content string) error {
 	file, err := os.Create(fileName)
 	if err != nil {
@@ -81,7 +78,7 @@ func createFile(fileName, content string) error {
 	return nil
 }
 
-// writeUserData writes a User struct to a JSON file.
+// writeUserData writes a User struct as JSON data to a file
 func writeUserData(fileName string, user User) error {
 	file, err := os.Create(fileName)
 	if err != nil {
@@ -89,7 +86,6 @@ func writeUserData(fileName string, user User) error {
 	}
 	defer file.Close()
 
-	// Serialize user to JSON and write it to the file.
 	jsonData, err := json.Marshal(user)
 	if err != nil {
 		return fmt.Errorf("failed to serialize user to JSON: %w", err)
@@ -103,7 +99,7 @@ func writeUserData(fileName string, user User) error {
 	return nil
 }
 
-// readFile reads and prints the content of a file.
+// readFile reads the content of a file and prints it
 func readFile(fileName string) error {
 	content, err := os.ReadFile(fileName)
 	if err != nil {
@@ -114,35 +110,35 @@ func readFile(fileName string) error {
 }
 
 func main() {
-	// Step 1: Create a directory for user profiles.
+	// Create a directory for user profiles
 	err := createDirectory("user_profiles")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	// Step 2: Change to the new directory.
+	// Change the current working directory to the new directory
 	err = changeDirectory("user_profiles")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	// Step 3: Print the current working directory.
+	// Print the current working directory
 	_, err = getWorkingDirectory()
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	// Step 4: Create a file and write initial content.
+	// Create a file and write initial content to it
 	err = createFile("welcome.txt", "Welcome to the User Profiles Directory!")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 
-	// Step 5: Create and write user data to a JSON file.
+	// Create a User struct and write its data to a JSON file
 	user := User{Name: "Alice", Age: 30, Email: "alice@example.com"}
 	err = writeUserData("user_data.json", user)
 	if err != nil {
@@ -150,7 +146,7 @@ func main() {
 		return
 	}
 
-	// Step 6: Read and print the content of the JSON file.
+	// Read and print the content of the JSON file
 	err = readFile("user_data.json")
 	if err != nil {
 		fmt.Println("Error:", err)

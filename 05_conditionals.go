@@ -1,26 +1,26 @@
-// Conditions:
-// - Comparison operators compare two values and return true or false
-// - if/else if/else statements are checked from top to bottom
-// - Only the first true condition runs its block of code
-// - The else if statement must follow an if statement
+// Conditions in Go:
+// - Comparison operators return true or false when comparing two values
+// - if/else if/else statements are evaluated from top to bottom
+// - Only the block of the first true condition is executed
+// - An else if statement must directly follow an if statement
 
-// Switch:
-// - A switch statement is simpler than multiple if statements
+// Switch statements in Go:
+// - A switch statement simplifies multiple conditions compared to if statements
 // - The switch keyword is followed by a value to compare
-// - Each case checks if the value matches the case's value
-// - If a match is found the case's block runs and no other cases are checked
-// - The default statement runs if no cases match
+// - Each case checks if the value matches and executes its block if true
+// - When a case matches no other cases are evaluated
+// - The default block runs if no case matches
 
-// Variable scope:
-// - Variables declared in if or switch statements are scoped to those blocks
-// - Variables scoped to these blocks cannot be accessed outside them
+// Variable scope in blocks:
+// - Variables declared in an if or switch block are scoped to that block
+// - Variables scoped to a block cannot be accessed outside it
 
-// Random numbers and seeding:
-// - Random numbers in Go need a unique seed to be random
-// - The rand.Seed() method sets the starting point for random numbers
-// - Passing a constant to rand.Seed() generates the same numbers every run
-// - Use time.Now().UnixNano() to create a unique seed
-// - A unique seed ensures different numbers every time the program runs
+// Random numbers and seeding in Go:
+// - Random numbers need a seed to appear random
+// - Use 'rand.Seed()' to set the starting point for random numbers
+// - A constant seed generates the same sequence of numbers every run
+// - Use 'time.Now().UnixNano()' to create a unique seed for randomness
+// - A unique seed ensures random numbers differ with every program run
 
 package main
 
